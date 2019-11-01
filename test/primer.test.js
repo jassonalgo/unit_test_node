@@ -24,21 +24,19 @@ describe('Pruebas unitarias para categorias', function () {
       .end(function (err, res) {
         // console.log(err)
         // codigo de respuesta http
-        console.log(config.urlDomain)
+
         res.should.have.status(200)
         // se valida cabezera de json api
         res.should.have.contentType(config.header)
         // se valida que vengan el objeto data, sea un array y tenga un minimo de propiedades
         res.body.should.have.properties('data').and.instanceof(Object)
         // res.body.data.should.instanceof(Object)
-        res.body.data.should.have.properties(['code', 'message', 'errors', 'categories', 'type'])
+        res.body.should.have.properties(['data', 'errors', 'status'])
         // se valida que el campo errors este vacio
-        res.body.data['errors'].should.be.empty()
-        // se valiad codigo en respuesta
-        res.body.data['code'].should.equal(200)
+        res.body.errors.should.be.empty()
+        // se valida estado en respuesta
+        res.body.status.should.equal('Success')
         // se valida mensaje de respuesta
-        res.body.data['message'].should.equal(config.services.categories.message)
-        // se valida que el campo categories sea un objeto y no este vacio
         res.body.data['categories'].should.instanceof(Object).and.not.empty()
         // se valida que este el atributo de tipo
         res.body.data['type'].should.equal('Categories list')
