@@ -1,0 +1,17 @@
+{
+  "name": "loe_testing",
+  "version": "1.0.0",
+  "description": "pruebas unitarias para los servicios de LOE",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "jeirod/yeimor",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "mocha": "^6.2.2",
+    "should": "^13.2.3",
+    "should-http": "^0.1.1",
+    "supertest": "^4.0.2"
+  }
+}
